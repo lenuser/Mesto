@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
+  
+   
+
+</head>
+
+
+<body class="body">
+    <!--header начало-->
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.svg" alt="логотип Mesto">
+        </header>
+        <!--header конец-->
+
+        <main>
+            <section class="profile">
+                <img class="profile__avatar" src="./images/image.jpg" alt="фото профиля">
+
+                <div class="profile__info">
+                    <div class="profile__container">
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button"><img class="profile__edit"
+                                src="./images/pen.svg" alt="кнопка карандашик"></button>
+                    </div>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button" type="button"><img class="profile__edit-pl" src="./images/pl.svg"
+                        alt="кнопка плюсик"></button>
+            </section>
+            <!--profile конец-->
+
+            <!--elements начало-->
+            <section class="elements cards-grid"></section>
+            <!--elements конец-->
+        </main>
+        <!--footer начало-->
+        <footer class="footer">
+            <p class="footer__copyright">&#169;2023. Mesto Russia</p>
+        </footer>
+        <!--footer конец-->
+        <!--popap редактировать профиль начало пр4-->
+        <div class="popup  popup_type_profile">
+            <form class="popup__form" name="edit-profile" autocomplete="off"
+                id="form-profile" novalidate>
+                <button class="popup__close-button" type="button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" class="popup__text " placeholder="Введите имя" name="profile-name" id="profile-name"
+                    minlength="2" maxlength="40" required>
+                <span class="error-message" id="error-profile-name"></span>
+                <input type="text" class="popup__text  popup__text_type_job" placeholder="Введите профессию"
+                    name="profile-job" id="profile-job" minlength="2" maxlength="200" required autocomplete="off">
+                <span class="error-message" id="error-profile-job" ></span>
+                <button class="popup__button popup__button-disabled" type="submit" id="submit">Сохранить</button>
+            </form>
+        </div>
+        <!--popap редактировать профиль конец пр4-->
+
+        <!--popap Новое место начало пр5 карточка -->
+        <div class="popup  popup_type_cards">
+            <form class="popup__form " id="popup-сards-form" novalidate>
+                <button class="popup__close-button popup__close-button_type_cards" type="button"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <input type="text" class="popup__text " required placeholder="Название" name="nameCardsInput"
+                    id="nameCardsInput" minlength="2" maxlength="40" autocomplete="off">
+                <span class="error-message" id="error-nameCardsInput"></span>
+                <input type="url" class="popup__text popup__text_type_link " required placeholder="Ссылка на картинку"
+                    name="linkCardsInput" id="linkCardsInput" minlength="2" maxlength="30" autocomplete="off">
+                <span class="error-message" id="error-linkCardsInput"></span>
+                <button class="popup__button  popup__button-disabled" type="submit" id="submit__button">Создать</button>
+            </form>
+        </div>
+        <!--popap Новое место конец пр5 карточка-->
+
+        <!--popap начало пр5 TEMPLATE -->
+        <template id="template-cards">
+            <article class="element">
+                <img class="element__image" src="./images/hakas.JPEG"
+                    alt="фотография летнего пейзажа с изображением гор и водоема">
+                <div class="element__group">
+                    <h2 class="element__title">Хакасия</h2>
+                    <button class="element__group-hard" type="button"> <img src="./images/hard.svg" alt="лайк"></button>
+                    <button class="element__group-del element__group-del_active" type="button"> <img
+                            src="./images/del.svg" alt="кнопка удаления"></button>
+                </div>
+            </article>
+        </template>
+        <!--popap конец пр5 TEMPLATE -->
+
+        <!--popap Катинка начало пр5 IMG -->
+        <div class="popup   popup_type_image   popup_type_bg">
+            <div class="popup__container">
+                <button class="popup__close-button popup__close-button_type_img" type="button"
+                    aria-label="Close"></button>
+                <img class="popup__img" src="." alt="Летний пейжаж с изображением гор и водоема">
+                <figcaption class="popup__title popup__title_type_size">Название</figcaption>
+            </div>
+        </div>
+        <!--popap Катинка конец пр5 IMG-->
+    </div>
+
+</body>
+
+</html>
