@@ -1,8 +1,7 @@
 import initialCards from "./constants.js";
 import Card from "./Card.js";
-import FormValidator  from "./FormValidator.js";
-import {openPopup}  from "./utils.js";
-
+import FormValidator from "./FormValidator.js";
+import { openPopup } from "./utils.js";
 
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupProfileCloseButtonElement = document.querySelector(".popup__close-button");
@@ -28,7 +27,6 @@ function fillProfileInputs() {
   jobInput.value = profileSubtitle.textContent;
 }
 
-
 function closePopup(popupName) {
   popupName.classList.remove("popup_opened");
   removeEscListener();
@@ -39,22 +37,46 @@ function handleProfileFormSubmit(evt) {
   closePopup(popupProfile);
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
-  
 }
 
 const createCards = (cardsData) => {
-  const card = new Card(cardsData, "#template-cards",popupImgElement);
+  const card = new Card(cardsData, "#template-cards", popupImgElement);
   const cardElement = card.generateCard();
   return cardElement;
-  
 };
+
+const validatorProfile = new FormValidator(
+  {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__text",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button-disabled",
+    inputErrorClass: "popup__text_invalid",
+    errorClass: "error-message",
+  },
+  formPopupProfile
+);
+validatorProfile.enableValidation();
+
+const validatorCards = new FormValidator(
+  {
+    formSelector: "#popup-сards-form",
+    inputSelector: ".popup__text",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button-disabled",
+    inputErrorClass: "popup__text_invalid",
+    errorClass: "error-message",
+  },
+  formCards
+);
+validatorCards.enableValidation();
 
 const renderCardElement = (cardsElement) => {
   cardsGrid.prepend(cardsElement);
 };
 
 initialCards.forEach((cards) => {
-  const card = new Card(cards, "#template-cards",popupImgElement);
+  const card = new Card(cards, "#template-cards", popupImgElement);
   const cardElement = card.generateCard();
   renderCardElement(cardElement);
 });
@@ -70,7 +92,6 @@ const handleAddCardsSubmit = (event) => {
   event.target.reset();
   renderCardElement(createCards(dataCards));
   closePopup(popupCards);
-  
 };
 
 formPopupProfile.addEventListener("submit", handleProfileFormSubmit);
@@ -81,7 +102,6 @@ cardsPopupCloseButton.addEventListener("click", () => {
 });
 imgPopupCloseButton.addEventListener("click", () => {
   closePopup(popupImgElement);
-  
 });
 buttonAddCards.addEventListener("click", () => {
   openPopup(popupCards);
@@ -118,7 +138,6 @@ function removeEscListener() {
 
 function addEscListener() {
   document.body.addEventListener("keydown", handleEscClose);
- 
 }
 
 popupProfileOpenButtonElement.addEventListener("click", () => {
@@ -130,14 +149,11 @@ popupCards.addEventListener("click", (event) => {
   if (event.target.classList.contains("popup__close-button")) {
     closePopup(popupCards);
   }
-  
 });
 
 popupImgElement.addEventListener("click", (event) => {
   if (event.target.classList.contains("popup__close-button")) {
     closePopup(popupImgElement);
-    
   }
-  
 });
-//не появляются ошибки в открытом попапе при заполнении импутов не по условиям 
+

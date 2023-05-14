@@ -8,7 +8,8 @@ export default class FormValidator {
     this._errorClass = config.errorClass;
     this._formElement = formElement;
   }
-//не загружаются ошибки 
+  
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(`#error-${inputElement.id}`);
     console.log(errorElement);

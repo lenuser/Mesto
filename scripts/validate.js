@@ -1,5 +1,5 @@
 
-function enableValidation({ formSelector, inputSelector, ...rest }) {
+ function enableValidation({ formSelector, inputSelector, ...rest }) {
   const forms = Array.from(document.querySelectorAll(formSelector));
 
   function toggleButtonValidity({ submitButtonSelector, inactiveButtonClass }, formElement) {
@@ -32,11 +32,11 @@ function enableValidation({ formSelector, inputSelector, ...rest }) {
   });
 }
 
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button-disabled",
-  inputErrorClass: "popup__text_invalid",
-  errorClass: "error-message",
-});
+//enableValidation({
+  //formSelector: ".popup__form",
+ // inputSelector: ".popup__text",
+ // submitButtonSelector: ".popup__button",
+ // inactiveButtonClass: "popup__button-disabled",
+ // inputErrorClass: "popup__text_invalid",
+ // errorClass: "error-message",
+//});
