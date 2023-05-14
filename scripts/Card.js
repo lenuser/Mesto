@@ -10,6 +10,7 @@ export default class Card {
   
   _handleDelete() {
     this._element.remove();
+    this._element = null;
   };
 
   _handleLike() {
@@ -18,8 +19,6 @@ export default class Card {
 
 _handleCardClick() {
   openPopup(this._popupImgElement);
-  const imgPopupImage = this._popupImgElement.querySelector(".popup__img");
-  const imgPopupTitle = this._popupImgElement.querySelector(".popup__title_type_size");
   if (imgPopupImage) {
     imgPopupImage.src = this._link;
     imgPopupImage.alt = this._name;

@@ -7,6 +7,9 @@ export default class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
     this._formElement = formElement;
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
   }
   
 
@@ -36,15 +39,13 @@ export default class FormValidator {
     }
 
   _toggleButtonState() {
-    const buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
+   
     if (this._formElement.checkValidity()) {
-      buttonElement.classList.remove(this._inactiveButtonClass);
-      buttonElement.disabled = false;
+      this._buttonElement.classList.remove(this._inactiveButtonClass);
+      this._buttonElement.disabled = false;
     } else {
-      buttonElement.classList.add(this._inactiveButtonClass);
-      buttonElement.disabled = true;
+      this._buttonElement.classList.add(this._inactiveButtonClass);
+      this._buttonElement.disabled = true;
     }
   }
 

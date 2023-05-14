@@ -21,6 +21,10 @@ const popupImgElement = document.querySelector(".popup_type_image");
 const cardsElement = document.querySelector(".popup_type_cards");
 const nameInputCards = document.querySelector("#nameCardsInput");
 const linkInputCards = document.querySelector("#linkCardsInput");
+const imgPopupImage = popupImgElement.querySelector(".popup__img");
+const imgPopupTitle = popupImgElement.querySelector(".popup__title_type_size");
+
+
 
 function fillProfileInputs() {
   nameInput.value = profileTitle.textContent;
