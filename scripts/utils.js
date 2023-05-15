@@ -19,3 +19,4 @@ function closePopup(popupName) {
 function removeEscListener() {
   document.body.removeEventListener("keydown", handleEscClose);
 }
+

@@ -2,6 +2,7 @@ import initialCards from "./constants.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import { openPopup } from "./utils.js";
+import { imgPopupImage, imgPopupTitle } from "./constants.js";
 
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupProfileCloseButtonElement = document.querySelector(".popup__close-button");
@@ -21,8 +22,6 @@ const popupImgElement = document.querySelector(".popup_type_image");
 const cardsElement = document.querySelector(".popup_type_cards");
 const nameInputCards = document.querySelector("#nameCardsInput");
 const linkInputCards = document.querySelector("#linkCardsInput");
-const imgPopupImage = popupImgElement.querySelector(".popup__img");
-const imgPopupTitle = popupImgElement.querySelector(".popup__title_type_size");
 
 
 

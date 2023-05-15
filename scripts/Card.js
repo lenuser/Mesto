@@ -1,4 +1,5 @@
 import { openPopup } from "./utils.js";
+import { imgPopupImage, imgPopupTitle } from "./constants.js";
 
 export default class Card {
   constructor(data, templateSelector,popupImgElement) {
@@ -18,12 +19,10 @@ export default class Card {
   };
 
 _handleCardClick() {
+  imgPopupImage.src = this._link;
+  imgPopupImage.alt = this._name;
+  imgPopupTitle.textContent = this._name;
   openPopup(this._popupImgElement);
-  if (imgPopupImage) {
-    imgPopupImage.src = this._link;
-    imgPopupImage.alt = this._name;
-    imgPopupTitle.textContent = this._name;
-  }
 }
 
   _setEventListeners() {

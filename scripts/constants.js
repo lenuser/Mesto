@@ -25,3 +25,7 @@
     },
   ];
   export default initialCards;
+
+export const popupImgElement = document.querySelector(".popup_type_image");
+export const imgPopupImage = popupImgElement.querySelector(".popup__img");
+export const imgPopupTitle = popupImgElement.querySelector(".popup__title_type_size");
