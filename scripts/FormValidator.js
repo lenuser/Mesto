@@ -47,6 +47,11 @@ export default class FormValidator {
     }
   }
 
+  _disableSubmitBtn() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.disabled = true;
+  } 
+
   _setEventListeners() {
     const inputList = this._formElement.querySelectorAll(this._inputSelector);
     inputList.forEach((inputElement) => {
@@ -66,6 +71,9 @@ export default class FormValidator {
       evt.preventDefault();
     });
     this._setEventListeners();
+  }
+  resetValidation() {
+    this._disableSubmitBtn();
   }
 }
 

@@ -107,6 +107,7 @@ imgPopupCloseButton.addEventListener("click", () => {
   closePopup(popupImgElement);
 });
 buttonAddCards.addEventListener("click", () => {
+  validatorCards.resetValidation();
   openPopup(popupCards);
 });
 

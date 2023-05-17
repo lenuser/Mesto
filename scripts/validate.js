@@ -32,11 +32,3 @@
   });
 }
 
-//enableValidation({
-  //formSelector: ".popup__form",
- // inputSelector: ".popup__text",
- // submitButtonSelector: ".popup__button",
- // inactiveButtonClass: "popup__button-disabled",
- // inputErrorClass: "popup__text_invalid",
- // errorClass: "error-message",
-//});
