@@ -26,6 +26,21 @@
   ];
   export default initialCards;
 
-export const popupImgElement = document.querySelector(".popup_type_image");
-export const imgPopupImage = popupImgElement.querySelector(".popup__img");
-export const imgPopupTitle = popupImgElement.querySelector(".popup__title_type_size");
+
+  export const formConfigProfile = {
+      formSelector: ".popup__form",
+      inputSelector: ".popup__text",
+      submitButtonSelector: ".popup__button",
+      inactiveButtonClass: "popup__button-disabled",
+      inputErrorClass: "popup__text_invalid",
+      errorClass: "error-message",
+    };
+
+  export const formConfigCard = {
+    formSelector: "#popup-сards-form",
+    inputSelector: ".popup__text",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button-disabled",
+    inputErrorClass: "popup__text_invalid",
+    errorClass: "error-message",
+  };
