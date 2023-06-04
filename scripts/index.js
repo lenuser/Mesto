@@ -54,8 +54,8 @@ const userInfo = new UserInfo({
 //профиль
 function profileFormSubmitHandler(inputValues) {
   userInfo.setUserInfo({
-    profileTitleContent: inputValues["#profile-name"],
-    profileSubtitleContent: inputValues["#profile-job"],
+    profileTitleContent: inputValues["profile-name"],
+    profileSubtitleContent: inputValues["profile-job"],
   });
   validatorProfile.resetValidation();
   popupProfile.close();
