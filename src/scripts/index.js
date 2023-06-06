@@ -7,6 +7,8 @@ import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
+import '../pages/index.css';
+
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupCardOpenButton = document.querySelector(".profile__add-button");
 const popupImgElement = document.querySelector(".popup_type_image");
