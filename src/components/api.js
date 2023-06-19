@@ -18,7 +18,7 @@ export default class Api {
     .then(this._checkResponse)
   }
 
-//получение карточек работает 
+//получение карточек 
   getCards() {
     return fetch(`${this._url}/cards`, {
       headers: {
@@ -36,7 +36,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-//аватарка
+//аватарка работает
   setAvatarNew({ avatar }) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",

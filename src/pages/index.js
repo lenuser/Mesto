@@ -10,7 +10,8 @@ import { formConfig } from "../utils/constants.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 import Api from "../components/api.js";
 
-import "../src/pages/index.css";
+import "./index.css";
+
 
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupCardOpenButton = document.querySelector(".profile__add-button");
@@ -244,8 +245,7 @@ Promise.all([api.getInfo(), api.getCards()])
     section.renderItems(dataCard.reverse());
   })
   .catch((error) =>
-    console.error(
-      `Ошибка при создании первоначальных данных на странице ${error}`
-    )
-  );
-
+   console.error(
+     `Ошибка при создании первоначальных данных на странице ${error}`
+   )
+ );

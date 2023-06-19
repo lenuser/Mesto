@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 
 module.exports = {
-    entry: { main: '../src/pages/index.js' },
+    entry: { main: './src/pages/index.js' },
     output: {
       filename: 'index.js',
       path: path.resolve(__dirname, 'dist'),
@@ -16,8 +16,7 @@ module.exports = {
       port: 8080, 
       open: true 
     },
-    
-      
+     
     module:{
       rules:[
         {
