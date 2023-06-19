@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 
 module.exports = {
-    entry: { main: './src/scripts/index.js' },
+    entry: { main: '../src/pages/index.js' },
     output: {
       filename: 'index.js',
       path: path.resolve(__dirname, 'dist'),
@@ -14,7 +14,7 @@ module.exports = {
       static: path.resolve(__dirname, './dist'), 
       compress: true, 
       port: 8080, 
-      open: true // сайт будет открываться сам при запуске npm run dev
+      open: true 
     },
     
       
@@ -34,14 +34,14 @@ module.exports = {
     }, 
 
     {
-    test: /\.(png|svg|jpg|jpeg|woff(2)?|eot|ttf|JPEG)$/,
+    test: /\.(png|svg|jpg|jpeg|gif)$/i,
     type: 'asset/resource',
     generator:{
       filename: 'images/[name].[hash][ext]',
     }
     },
     {
-      test: /\.(woff(2))$/,
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
       type: 'asset/resource',
       generator:{
         filename:'fonts/[name].[hash][ext]',
@@ -51,14 +51,13 @@ module.exports = {
       
     },
     
-    
     plugins: [
       new CleanWebpackPlugin (),
       new HtmlWebpackPlugin ({
         template: './src/index.html'
       }),
       new MiniCssExtractPlugin({
-        filename:'index.css'
+        filename:'./index.css'
       }),
     ]
   };

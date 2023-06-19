@@ -36,7 +36,7 @@
 @import url(../blocks/profile/__edit-pl/profile__edit-pl/profile__edit-pl.css);
 
 @import url(../blocks/popup/__text/_invalid/popup__text_invalid.css);
-/* popup  пр4 */
+/* popup */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__text/popup__text.css);
@@ -46,15 +46,19 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__text/_type/popup__text_type_job\ .css);
 @import url(../blocks/popup/_type/popup-img_type_bg.css);
-/* popup  пр5 карточки */
+/* popup карточки */
 @import url(../blocks/popup/__text/_type/popup__text_type_link.css);
 @import url(../blocks/popup/__button-disabled/popup__button-disabled.css);
-/* popup  пр5 картинка */
+/* popup картинка */
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__title/_type/popup__title_type_size.css);
-
-
+/* новое пр9 */
+@import url(../blocks/profile/__avatar-button/profile__avatar-button.css);
+@import url(../blocks/element/__counter/element__counter.css);
+@import url(../blocks/element/__container/element__container.css);
+@import url(../blocks/popup/__title/_type/popup__title_type_change-avatar.css);
+@import url(../blocks/popup/__title/_type/popup__title_type_change.css);
 
 
 

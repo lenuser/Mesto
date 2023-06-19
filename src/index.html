@@ -19,8 +19,9 @@
 
         <main>
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="фото профиля">
-
+                <button class="profile__avatar-button" type="button">
+                <img class="profile__avatar" src="#" alt="фото профиля">
+                </button>
                 <div class="profile__info">
                     <div class="profile__container">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -43,7 +44,7 @@
             <p class="footer__copyright">&#169;2023. Mesto Russia</p>
         </footer>
         <!--footer конец-->
-        <!--popap редактировать профиль начало пр4-->
+        <!--popap редактировать профиль начало -->
         <div class="popup  popup_type_profile">
             <form class="popup__form" name="edit-profile" autocomplete="off"
                 id="form-profile" novalidate>
@@ -58,9 +59,8 @@
                 <button class="popup__button popup__button-disabled" type="submit" id="submit">Сохранить</button>
             </form>
         </div>
-        <!--popap редактировать профиль конец пр4-->
-
-        <!--popap Новое место начало пр5 карточка -->
+        <!--popap редактировать профиль конец -->
+        <!--popap начало карточка -->
         <div class="popup  popup_type_cards">
             <form class="popup__form" id="popup-сards-form" novalidate>
                 <button class="popup__close-button popup__close-button_type_cards" type="button"></button>
@@ -74,9 +74,29 @@
                 <button class="popup__button  popup__button-disabled" type="submit" id="submit__button">Создать</button>
             </form>
         </div>
-        <!--popap Новое место конец пр5 карточка-->
-
-        <!--popap начало пр5 TEMPLATE -->
+        <!--popap конец карточка-->
+         <!--popap аватар --> 
+         <div class="popup  popup_type_avatar">
+            <form class="popup__form " id="profileAvatar" novalidate>
+                <button class="popup__close-button popup__close-button_type_cards" type="button"></button>
+                <h2 class="popup__title  popup__title_type_change-avatar">Обновить аватар</h2>
+                <input  class="popup__text popup__text_type_avatar" type="url" required placeholder="Ссылка на картинку"
+                    name="avatar" id="avatar" minlength="2" maxlength="30" autocomplete="off">
+                <span class="error-message" id="error-avatar"></span>
+                <button class="popup__button  popup__button-disabled" type="submit" id="submit__buttonАvatar">Сохранить</button>
+            </form>
+        </div>
+        <!--popap аватар-->
+        <!--popap удаления начало-->
+        <div class="popup  popup_type_delete">
+            <form class="popup__form " id="card-delete" novalidate>
+                <button class="popup__close-button popup__close-button_type_del" type="button"></button>
+                <h2 class="popup__title popup__title_type_change">Вы уверены?</h2>
+                <button class="popup__button  popup__button-disabled" type="submit" id="submit__delete">Да</button>
+            </form>
+        </div>
+        <!--popap удаления конец -->
+        <!--popap начало TEMPLATE -->
         <template id="template-cards">
             <article class="element">
                 <img class="element__image" src="./images/hakas.JPEG" 
@@ -89,9 +109,8 @@
                 </div>
             </article>
         </template>
-        <!--popap конец пр5 TEMPLATE -->
-
-        <!--popap Катинка начало пр5 IMG -->
+        <!--popap конец  TEMPLATE -->
+        <!--popap начало IMG -->
         <div class="popup   popup_type_image   popup_type_bg">
             <div class="popup__container">
                 <button class="popup__close-button popup__close-button_type_img" type="button"
@@ -100,7 +119,7 @@
                 <figcaption class="popup__title popup__title_type_size">Название</figcaption>
             </div>
         </div>
-        <!--popap Катинка конец пр5 IMG-->
+        <!--popap IMG конец-->
     </div>
 
 </body>
