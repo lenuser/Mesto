@@ -6,7 +6,6 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import { formConfig } from "../utils/constants.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
-//import Api from "../components/api.js";
 import { api } from '../components/api.js';
 
 import "./index.css";
@@ -164,6 +163,7 @@ function сardFormSubmitHandler(inputValues) {
       userId: userId,
     })
     .then((dataCard) => {
+      dataCard.myId = userId;
       section.addItem(сardItem(dataCard));
       popupNewCard.close();
     })
@@ -196,10 +196,6 @@ document
     popupProfile.open();
     validatorProfile.resetValidation();
   });
-document.querySelector(".profile__add-button").addEventListener("click", () => {
-  popupNewCard.open();
-  validatorProfile.resetValidation();
-});
 document
   .querySelector(".profile__avatar-button")
   .addEventListener("click", () => {
@@ -215,7 +211,7 @@ popupProfileOpenButton.addEventListener("click", editButtonHandler);
 popupCardOpenButton.addEventListener("click", openCardButtonHandler);
 
 
-let userId = undefined;
+let userId ;
 
 Promise.all([api.getInfo(), api.getCards()])
 .then(([dataUser, dataCard]) => {

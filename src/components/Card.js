@@ -27,6 +27,7 @@ export default class Card {
     this._changeLike(this._likeButton, this._cardId);
   }
 
+  
   _setEventListeners() {
     this._deleteButton.addEventListener("click", () => {
       this._handleDelete();
@@ -57,8 +58,7 @@ export default class Card {
     this._element = cardTemplate;
     this._cardTitle = this._element.querySelector(".element__title");
     this._cardImage = this._element.querySelector(".element__image");
-    //this._deleteButton = this._element.querySelector( ".element__group-del_active");
-    this._deleteButton = this._element.querySelector( ".element__group-del");
+    this._deleteButton = this._element.querySelector( ".element__group-del_active");
     this._likeButton = this._element.querySelector(".element__group-hard");
     this._counter = this._element.querySelector(".element__counter");
     this._cardTitle.textContent = this._name;
@@ -78,11 +78,9 @@ export default class Card {
   }
 
   _changeDeleteButton() {
-    this._myId === this._ownerId
-      ? (this._deleteButton.style.display = "block")
-      : (this._deleteButton.style.display = "none");
+    this._myId === this._ownerId ? this._deleteButton.style.display = "block" : this._deleteButton.style.display = "none";
   }
-
+ 
   removeCard() {
     this._element.remove();
     this._element = null;
