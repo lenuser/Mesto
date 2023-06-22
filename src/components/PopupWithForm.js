@@ -23,7 +23,9 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach(input => {
       input.value = dataUser[input.name];
     });
+    
   }
+   
   _submitForm(event) {
     event.preventDefault();
     const inputValues = this._getInputValues(); 

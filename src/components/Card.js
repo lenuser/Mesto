@@ -1,5 +1,11 @@
 export default class Card {
-  constructor(data, templateSelector, handleCardClick, deletePopup, changeLike) {
+  constructor(
+    data,
+    templateSelector,
+    handleCardClick,
+    deletePopup,
+    changeLike
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._myId = data.myId;
@@ -51,9 +57,8 @@ export default class Card {
     this._element = cardTemplate;
     this._cardTitle = this._element.querySelector(".element__title");
     this._cardImage = this._element.querySelector(".element__image");
-    this._deleteButton = this._element.querySelector(
-      ".element__group-del_active"
-    );
+    //this._deleteButton = this._element.querySelector( ".element__group-del_active");
+    this._deleteButton = this._element.querySelector( ".element__group-del");
     this._likeButton = this._element.querySelector(".element__group-hard");
     this._counter = this._element.querySelector(".element__counter");
     this._cardTitle.textContent = this._name;

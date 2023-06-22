@@ -8,7 +8,6 @@
     <title>Mesto</title>
 </head>
 
-
 <body class="body">
     <!--header начало-->
     <div class="page">
@@ -16,7 +15,6 @@
             <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип Mesto">
         </header>
         <!--header конец-->
-
         <main>
             <section class="profile">
                 <button class="profile__avatar-button" type="button">
@@ -34,7 +32,6 @@
                         alt="кнопка плюсик"></button>
             </section>
             <!--profile конец-->
-
             <!--elements начало-->
             <section class="elements cards-grid"></section>
             <!--elements конец-->
@@ -103,9 +100,13 @@
                     alt="фотография летнего пейзажа с изображением гор и водоема">
                 <div class="element__group">
                     <h2 class="element__title">Хакасия</h2>
-                    <button class="element__group-hard" type="button"> <img src="<%=require('./images/hard.svg')%>"  alt="лайк"></button>
-                    <button class="element__group-del element__group-del_active" type="button"> <img
-                            src="<%=require('./images/del.svg')%>"  alt="кнопка удаления"></button>
+                    <button class="element__group-del element__group-del_active" type="button"> 
+                        <img src="<%=require('./images/del.svg')%>"  alt="кнопка удаления"></button>
+                    <div class = "element__container">
+                        <button class="element__group-hard" type="button"> 
+                            <img src="<%=require('./images/hard.svg')%>"  alt="лайк"></button>
+                    <span class="element__counter"></span>
+                </div>
                 </div>
             </article>
         </template>
@@ -121,7 +122,6 @@
         </div>
         <!--popap IMG конец-->
     </div>
-
 </body>
 
 </html>

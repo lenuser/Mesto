@@ -6,18 +6,23 @@ export default class FormValidator {
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._formElement = formElement;
-    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
   }
 
   _showInputError(inputElement, errorMessage) {
-    const errorElement = this._formElement.querySelector(`#error-${inputElement.id}`);
+    const errorElement = this._formElement.querySelector(
+      `#error-${inputElement.id}`
+    );
     inputElement.classList.add(this._inputErrorClass);
     errorElement.textContent = errorMessage;
   }
 
-
   _hideInputError(inputElement) {
-    const errorElement = this._formElement.querySelector(`#error-${inputElement.id}`);
+    const errorElement = this._formElement.querySelector(
+      `#error-${inputElement.id}`
+    );
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.textContent = " ";
   }
@@ -31,12 +36,12 @@ export default class FormValidator {
   }
 
   _toggleButtonState() {
-    if (this._formElement.checkValidity()){
+    if (this._formElement.checkValidity()) {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
       this._buttonElement.disabled = false;
-    }else {
+    } else {
       this._disableSubmitBtn();
-   }
+    }
   }
 
   _disableSubmitBtn() {
@@ -48,7 +53,7 @@ export default class FormValidator {
     const inputList = this._formElement.querySelectorAll(this._inputSelector);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-       this._checkInputValidity(inputElement);
+        this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
     });
@@ -62,11 +67,10 @@ export default class FormValidator {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    
+
     this._setEventListeners();
   }
   resetValidation() {
     this._disableSubmitBtn();
   }
 }
-

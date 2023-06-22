@@ -8,7 +8,7 @@ export default class Api {
   _checkResponse(res) {
     return res.ok ? res.json() : Promise.reject()
   }
-//получение профиля работает 
+//получение профиля 
   getInfo() {
     return fetch(`${this._url}/users/me`, {
       headers: {
@@ -27,7 +27,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-  //кладет информацию о имени и профессии в профиле  работает
+  //кладет информацию о имени и профессии в профиле  
   setUserInfo({name, about}) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
@@ -36,7 +36,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-//аватарка работает
+//аватарка 
   setAvatarNew({ avatar }) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
@@ -45,7 +45,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-//создание новой карточки
+//создание новой карточки 
   addCard({ name , link }) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
@@ -54,7 +54,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-//постановка лайка
+//постановка лайка 
   addLike(cardId) {
     return fetch(`${this._url}/cards/${ cardId }/likes`, {
       method: "PUT",
@@ -64,7 +64,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-  //удаление лайка
+  //удаление лайка 
   deleteLike(cardId) {
     return fetch(`${this._url}/cards/${ cardId }/likes`, {
       method: "DELETE",
@@ -84,5 +84,12 @@ export default class Api {
       })
       .then(this._checkResponse)
   }
-
+ 
 }
+export const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-68",
+  headers: {
+    authorization: "f4814bdc-9a4c-47b7-ba7d-ea93d4ec3b19",
+    "Content-Type": "application/json",
+  },
+});
