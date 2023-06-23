@@ -6,10 +6,9 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import { formConfig } from "../utils/constants.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
-import { api } from '../components/api.js';
+import { api } from "../components/api.js";
 
 import "./index.css";
-
 
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 const popupCardOpenButton = document.querySelector(".profile__add-button");
@@ -26,13 +25,16 @@ const defaultDeleteTextCreate = "Создать";
 const deletePopup = new PopupWithConfirmation(
   ".popup_type_delete",
   ({ card, cardId }) => {
-    api.deleteCard(cardId)
+    api
+      .deleteCard(cardId)
       .then(() => {
         card.removeCard();
         deletePopup.close();
       })
       .catch((error) => console.error(`Ошибка при удалении карточки ${error}`))
-      .finally(() => (deletePopup.submitButtonDel.textContent = defaultDeleteTextYes));
+      .finally(
+        () => (deletePopup.submitButtonDel.textContent = defaultDeleteTextYes)
+      );
   }
 );
 
@@ -70,7 +72,6 @@ popupNewCard.setEventListeners();
 imagePopup.setEventListeners();
 deletePopup.setEventListeners();
 popupEditAvatar.setEventListeners();
-
 
 function сardItem(element) {
   const card = new Card(
@@ -113,7 +114,7 @@ const userInfo = new UserInfo({
   profileAvatarSelector: ".profile__avatar",
 });
 
-//профиль редактирование 
+//профиль редактирование
 function profileFormSubmitHandler(inputValues) {
   api
     .setUserInfo({
@@ -135,8 +136,7 @@ function profileFormSubmitHandler(inputValues) {
     });
 }
 
-
-// аватар сабмит изменение аватара 
+// аватар сабмит изменение аватара
 function avatarFormSubmitHandler(inputValues) {
   api
     .setAvatarNew({ avatar: inputValues["avatar"] })
@@ -177,19 +177,22 @@ function сardFormSubmitHandler(inputValues) {
 }
 
 function editButtonHandler() {
-  const nameInput = document.querySelector(".profile__title");
-  const jobInput = document.querySelector(".profile__subtitle");
   const userProfile = userInfo.getUserInfo();
+  const nameInput = document.querySelector(".popup__form input[name='profile-name']");
+  const jobInput = document.querySelector(".popup__form input[name='profile-job']");
   nameInput.value = userProfile.profileTitleContent;
   jobInput.value = userProfile.profileSubtitleContent;
   popupProfile.open();
+  validatorProfile.resetValidation();
 }
+
+
 function openCardButtonHandler() {
   validatorCards.resetValidation();
   popupNewCard.open();
 }
 
-// Открытие и закрытие попапов 
+// Открытие и закрытие попапов
 document
   .querySelector(".profile__edit-button")
   .addEventListener("click", () => {
@@ -210,19 +213,21 @@ function handleCardClick(link, name) {
 popupProfileOpenButton.addEventListener("click", editButtonHandler);
 popupCardOpenButton.addEventListener("click", openCardButtonHandler);
 
-
-let userId ;
+let userId;
 
 Promise.all([api.getInfo(), api.getCards()])
-.then(([dataUser, dataCard]) => {
-  userId = dataUser._id;
-  dataCard.forEach((element) => (element.myId = userId));
-  userInfo.setUserInfo({
-    title: dataUser.name,
-    subtitle: dataUser.about,
-    avatar: dataUser.avatar,
-  });
-  section.renderItems(dataCard.reverse());
-})
-.catch((error) => console.error(`Ошибка при создании первоначальных данных на странице ${error}`)
-);
+  .then(([dataUser, dataCard]) => {
+    userId = dataUser._id;
+    dataCard.forEach((element) => (element.myId = userId));
+    userInfo.setUserInfo({
+      title: dataUser.name,
+      subtitle: dataUser.about,
+      avatar: dataUser.avatar,
+    });
+    section.renderItems(dataCard.reverse());
+  })
+  .catch((error) =>
+    console.error(
+      `Ошибка при создании первоначальных данных на странице ${error}`
+    )
+  );
